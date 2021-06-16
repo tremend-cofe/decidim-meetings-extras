@@ -1,0 +1,6 @@
+---
+en:
+  decidim:
+    forms:
+      meetings:
+        attendees_count_help_text: "Don’t forget to include the total number of participants at your event. Whether in person, hybrid, or online, it’s important that we know how many people are involved."
