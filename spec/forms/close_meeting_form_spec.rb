@@ -38,6 +38,5 @@ module Decidim::Meetings
 
       it { is_expected.not_to be_valid }
     end
-
   end
 end

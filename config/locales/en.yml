@@ -3,4 +3,13 @@ en:
   decidim:
     forms:
       meetings:
-        attendees_count_help_text: "Don’t forget to include the total number of participants at your event. Whether in person, hybrid, or online, it’s important that we know how many people are involved."
+        attendees_count_help_text: Don’t forget to include the total number of participants
+          at your event. Whether in person, hybrid, or online, it’s important that
+          we know how many people are involved.
+    meetings:
+      extra:
+        filters:
+          all: All
+          closed: Events with a report
+          meeting_report: Event reports
+          pending: Events pending report

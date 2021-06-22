@@ -8,6 +8,7 @@ module Decidim
             super
             meeting.update!(
               attendees_count: form.attendees_count,
+              closing_visible: true,
             )
           end
         end

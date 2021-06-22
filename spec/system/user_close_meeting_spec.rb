@@ -26,6 +26,7 @@ describe "User edit meeting", type: :system do
 
   before do
     switch_to_host user.organization.host
+    page.visit Decidim::EngineRouter.main_proxy(component).root_path(locale: "en", filter: { date: { past: [""] } } )
   end
 
   describe "closing my own meeting" do
@@ -36,7 +37,11 @@ describe "User edit meeting", type: :system do
     end
 
     it "updates the related attributes" do
-      visit_component
+      page.visit Decidim::EngineRouter.main_proxy(component).root_path(locale: "en", filter: { date: { past: [""] } } )
+
+      within ".date_check_boxes_tree_filter" do
+        check "Past"
+      end
 
       click_link translated(meeting.title)
       click_link "Close meeting"
@@ -54,7 +59,7 @@ describe "User edit meeting", type: :system do
 
       expect(page).to have_content(closing_report)
       expect(page).not_to have_content "Close meeting"
-      expect(page).not_to have_content "ATTENDEES COUNT"
+      expect(page).to have_content "ATTENDEES COUNT"
       expect(page).not_to have_content "ATTENDING ORGANIZATIONS"
       expect(meeting.reload.closed_at).not_to be nil
     end
@@ -65,7 +70,11 @@ describe "User edit meeting", type: :system do
       end
 
       it "does not display the proposal picker" do
-        visit_component
+        page.visit Decidim::EngineRouter.main_proxy(component).root_path(locale: "en", filter: { date: { past: [""] } } )
+
+        within ".date_check_boxes_tree_filter" do
+          check "Past"
+        end
 
         click_link translated(meeting.title)
         click_link "Close meeting"
@@ -85,7 +94,11 @@ describe "User edit meeting", type: :system do
     end
 
     it "doesn't show the button" do
-      visit_component
+      page.visit Decidim::EngineRouter.main_proxy(component).root_path(locale: "en", filter: { date: { past: [""] } } )
+
+      within ".date_check_boxes_tree_filter" do
+        check "Past"
+      end
 
       click_link translated(meeting.title)
       expect(page).to have_no_content("Close meeting")

@@ -1,0 +1,2 @@
+<!-- insert_after 'div.filters__section' -->
+<%= javascript_pack_tag "decidim_meetings_extras" %>

@@ -2,5 +2,4 @@
 <div class="field hashtags__container">
   <%= form.number_field :attendees_count, min: 0 %>
   <div class="help-text help-text-form-required-fields"><%= t("decidim.forms.meetings.attendees_count_help_text") %></div>
-
 </div>

@@ -1,0 +1,5 @@
+<!-- insert_before "erb[silent]:contains('if current_user')" -->
+  <%= form.collection_radio_buttons :meeting_report, [["all", t("all", scope: "decidim.meetings.extra.filters")],
+                                                      ["closed", t("closed", scope: "decidim.meetings.extra.filters")],
+                                                      ["pending", t("pending", scope: "decidim.meetings.extra.filters")]], :first, :last, legend_title: t("meeting_report", scope: "decidim.meetings.extra.filters") %>
+
